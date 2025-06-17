@@ -1,0 +1,9 @@
+{
+  "watch": [
+    ".",
+    "api"
+  ],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "npx tsx server.ts"
+}
