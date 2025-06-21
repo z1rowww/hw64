@@ -10,17 +10,22 @@ interface IUser extends mongoose.Document {
 }
 
 const userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-},{timestamps: true});
-
-userSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(String(this.password), salt);
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
+    validate: {
+      validator: (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      message: props => `${props.value} is not a valid email!`
+    }
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: [6, 'Password must be at least 6 characters long']
   }
-  next();
-});
+}, { timestamps: true });
+
 
 userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
   try {
