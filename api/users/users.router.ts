@@ -14,7 +14,7 @@ router.post(
 router.post('/insert-many', usersController.insertManyUsers);
 router.post('/insert-one', usersController.insertOne);
 
-router.delete('/delete-one', usersController.deleteOne);
+router.delete('/delete-one', usersController.deleteOne)
 router.delete('/delete-many', usersController.deleteOne);
 
 router.patch('/update-one', usersController.updateOne);
