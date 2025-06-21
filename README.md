@@ -63,19 +63,3 @@ Passport.js
 express-session
 connect-mongo
 
-## Структура проекту
-
-```bash
-├── api/
-│ └── users/
-│ ├── user.model.ts
-│ ├── users.controller.ts
-│ └── users.router.ts
-├── config/
-│ ├── database.ts
-│ └── passport.ts
-├── middlewars/
-│ └── status.middleware.ts
-├── .env
-├── server.ts
-└── package.json#
