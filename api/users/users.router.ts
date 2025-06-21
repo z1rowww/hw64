@@ -9,8 +9,13 @@ router.post('/login', passport.authenticate('local'), usersController.login as R
 router.post('/insert-many', usersController.insertManyUsers);
 router.post('/insert-one', usersController.insertOne);
 
+<<<<<<< HEAD
 router.delete('/delete-one', usersController.deleteOne);
 router.delete('/delete-many', usersController.deleteMany);
+=======
+router.delete('/delete-one', usersController.deleteOne)
+router.delete('/delete-many', usersController.deleteOne);
+>>>>>>> c767aae6805b2fa5965d8333cbf18c386daf32af
 
 router.patch('/update-one', usersController.updateOne);
 router.patch('/update-many', usersController.updateMany);
