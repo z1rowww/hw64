@@ -12,6 +12,12 @@ import { connectDB } from './config/database';
 import indexRouter from './api/index';
 import { statusCheck } from './middlewares/status.middleware';
 
+import userRoutes from './routes/users.route';
+app.use('/', userRoutes);
+
+import { connectDB } from './config/database';
+connectDB();
+
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 3000;
@@ -41,6 +47,7 @@ app.use('/', indexRouter);
 app.use('/status', statusCheck);
 
 connectDB().then(() => {
+  app.use('/', userListRoute);
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
   });
